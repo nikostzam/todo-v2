@@ -8,13 +8,11 @@ export const TaskListContext = createContext();
 
 const TaskListContextProvider = (props) => {
 
-    const initialState = JSON.parse(localStorage.getItem('tasks' || []));
+    const initialState = [];
 
     const [tasks, setTasks] = useState(initialState);
 
-    useEffect(()=> {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    },[tasks])
+   
 
     const addTask = (title) =>{
         setTasks([...tasks, {title:title, id:uuid()}])
